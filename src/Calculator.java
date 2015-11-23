@@ -18,12 +18,11 @@ public class Calculator {
     public Matrix calculate(Matrix matrix) {
         State state = new State();
         state.setMatrix(matrix);
-        List<Token>[][] content = matrix.getContent();
-        for (int i = 0; i < content.length; i++) {
-            for (int j = 0; j < content[i].length; j++) {
+        for (int i = 0; i < matrix.getWidth(); i++) {
+            for (int j = 0; j < matrix.getHeight(i); j++) {
                 List<Token> res = new ArrayList<Token>();
-                res.add(new Number(calculate(content[i][j])));
-                content[i][j] = res;
+                res.add(new Number(calculate(matrix.getCell(i, j))));
+                matrix.setCell(i, j, res);
             }
         }
         return matrix;

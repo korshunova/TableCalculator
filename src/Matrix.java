@@ -13,8 +13,20 @@ public class Matrix {
         this.content = content;
     }
 
-    public List<Token>[][] getContent() {
-        return content;
+    public int getWidth() {
+        return content.length;
+    }
+
+    public int getHeight(int x) {
+        return content[x].length;
+    }
+
+    public List<Token> getCell(int x, int y) {
+        return content[x][y];
+    }
+
+    public void setCell(int x, int y, List<Token> val) {
+        content[x][y] = val;
     }
 
     public static Matrix read(BufferedReader br) throws IOException {
