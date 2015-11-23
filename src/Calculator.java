@@ -18,14 +18,15 @@ public class Calculator {
     public Matrix calculate() {
         for (int i = 0; i < matrix.getWidth(); i++) {
             for (int j = 0; j < matrix.getHeight(i); j++) {
-                calculate(matrix.getCell(i, j), i, j);
+                calculate(i, j);
             }
         }
         return matrix;
     }
 
-    public void calculate(List<Token> tokens, int x, int y) {
+    public void calculate(int x, int y) {
         Deque<Double> stack = new ArrayDeque<>();
+        List<Token> tokens = matrix.getCell(x, y);
         for (Token token : tokens){
             token.proceed(stack, this);
         }
