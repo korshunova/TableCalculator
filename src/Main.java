@@ -12,8 +12,8 @@ public class Main {
                     new BufferedReader(new InputStreamReader(System.in));
 
             Matrix matrix = Matrix.read(br);
-                    Calculator calc = new Calculator();
-            Matrix result = calc.calculate(matrix);
+            Calculator calc = new Calculator(matrix);
+            Matrix result = calc.calculate();
             result.print();
         }catch(IOException io){
             System.out.println("IO error");
