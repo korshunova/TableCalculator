@@ -16,7 +16,7 @@ public class Calculator {
     }
 
     public Matrix calculate(Matrix matrix) {
-        State state = new State();
+        state = new State();
         state.setMatrix(matrix);
         for (int i = 0; i < matrix.getWidth(); i++) {
             for (int j = 0; j < matrix.getHeight(i); j++) {

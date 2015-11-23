@@ -49,6 +49,7 @@ public class Matrix {
                     throw new IllegalArgumentException("Empty input.");
                 }
                 String[] values = input.split(" ");
+                matrix[i][j] = new ArrayList<>();
                 List<Token> tokens = matrix[i][j];
                 for (String value : values) {
                     tokens.add(Token.defineToken(value));
