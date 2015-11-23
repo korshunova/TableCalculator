@@ -9,7 +9,7 @@ import java.util.List;
 public class Matrix {
     private List<Token>[][] content;
 
-    public Matrix(final List<Token>[][] content) {
+    private Matrix(final List<Token>[][] content) {
         this.content = content;
     }
 

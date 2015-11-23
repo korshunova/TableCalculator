@@ -1,7 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.List;
 
 /**
  * Created by lkorshunova on 22.11.15.
@@ -14,8 +13,8 @@ public class Main {
 
             Matrix matrix = Matrix.read(br);
                     Calculator calc = new Calculator();
-                    List<Token>[][] result = calc.calculate(matrix);
-                   new Matrix(result).print();
+            Matrix result = calc.calculate(matrix);
+            result.print();
         }catch(IOException io){
             io.printStackTrace();
         }
