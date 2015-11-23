@@ -30,9 +30,9 @@ public class Matrix {
     }
 
     public static Matrix read(BufferedReader br) throws IllegalArgumentException, IOException {
-        String input;
+        String input = br.readLine();
 
-        if ((input = br.readLine()) == null) {
+        if (input == null) {
             throw new IllegalArgumentException("Empty input.");
         }
         String[] dimensions = input.split(" ");
@@ -44,27 +44,29 @@ public class Matrix {
         List<Token>[][] matrix = new ArrayList[x][y];
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
-                if ((input = br.readLine()) != null) {
-                    String[] values = input.split(" ");
-                    List<Token> tokens = matrix[i][j];
-                    for (String value : values) {
-                        char c = value.charAt(0);
-                        if (c >= '0' && c <= '9') {
-                            Number num = new Number(Integer.parseInt(value));
-                            tokens.add(num);
-                        } else if (c >= 'A' && c <= 'Z') {
-                            Reference ref = new Reference();
-                            ref.setX(c - 'A');
-                            ref.setY(Integer.parseInt(value.substring(1)) - 1);
-                            tokens.add(ref);
-                        } else if (c == '+' || c == '-' || c == '*' || c == '/') {
-                            Operator op = new Operator(Operator.OperatorTypeEnum.lookupSymbol(value));
-                            tokens.add(op);
-                        }
+                input = br.readLine();
+                if (input == null) {
+                    throw new IllegalArgumentException("Empty input.");
+                }
+                String[] values = input.split(" ");
+                List<Token> tokens = matrix[i][j];
+                for (String value : values) {
+                    char c = value.charAt(0);
+                    if (c >= '0' && c <= '9') {
+                        Number num = new Number(Integer.parseInt(value));
+                        tokens.add(num);
+                    } else if (c >= 'A' && c <= 'Z') {
+                        Reference ref = new Reference();
+                        ref.setX(c - 'A');
+                        ref.setY(Integer.parseInt(value.substring(1)) - 1);
+                        tokens.add(ref);
+                    } else if (c == '+' || c == '-' || c == '*' || c == '/') {
+                        Operator op = new Operator(Operator.OperatorTypeEnum.lookupSymbol(value));
+                        tokens.add(op);
                     }
                 }
+                }
             }
-        }
         return new Matrix(matrix);
     }
     public void print() {
