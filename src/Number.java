@@ -20,7 +20,6 @@ public class Number extends Token {
 
     @Override
     public void proceed(Deque<Double> stack, Calculator calc) {
-        System.out.println("Number:" + value);
         stack.push(value);
     }
 }
