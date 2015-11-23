@@ -1,3 +1,5 @@
+import java.util.Deque;
+
 /**
  * Created by lkorshunova on 22.11.15.
  */
@@ -17,7 +19,7 @@ public class Number extends Token {
     }
 
     @Override
-    public void proceed(State state) {
-        state.getStack().push(value);
+    public void proceed(Deque<Double> stack, Calculator calc) {
+        stack.push(value);
     }
 }

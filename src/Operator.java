@@ -8,7 +8,7 @@ import java.util.Map;
  */
 public class Operator extends Token {
     @Override
-    public void proceed(State state) {
+    public void proceed(Deque<Double> stack, Calculator calc) {
         Deque<Double> stack = state.getStack();
         Double first = stack.pop();
         if (first == null) {

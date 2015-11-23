@@ -18,15 +18,13 @@ public class Calculator {
     public Matrix calculate() {
         for (int i = 0; i < matrix.getWidth(); i++) {
             for (int j = 0; j < matrix.getHeight(i); j++) {
-                List<Token> res = new ArrayList<>();
-                res.add(new Number(calculate(matrix.getCell(i, j))));
-                matrix.setCell(i, j, res);
+                calculate(matrix.getCell(i, j), i, j);
             }
         }
         return matrix;
     }
 
-    public double calculate(List<Token> tokens){
+    public void calculate(List<Token> tokens, int x, int y) {
         Deque<Double> stack = new ArrayDeque<>();
         for (Token token : tokens){
             token.proceed(stack, this);
@@ -35,6 +33,8 @@ public class Calculator {
         if (result == null) {
             throw new IllegalStateException("Empty stack.");
         }
-        return result;
+        List<Token> list = new ArrayList<>();
+        list.add(new Number(result));
+        matrix.setCell(x, y, list);
     }
 }
