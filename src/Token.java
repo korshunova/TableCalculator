@@ -9,10 +9,7 @@ public abstract class Token {
         if (c >= '0' && c <= '9') {
             return new Number(Integer.parseInt(value));
         } else if (c >= 'A' && c <= 'Z') {
-            Reference ref = new Reference();
-            ref.setX(c - 'A');
-            ref.setY(Integer.parseInt(value.substring(1)) - 1);
-            return ref;
+            return new Reference(c - 'A', Integer.parseInt(value.substring(1)) - 1);
         } else if (c == '+' || c == '-' || c == '*' || c == '/') {
             return new Operator(Operator.OperatorTypeEnum.lookupSymbol(value));
         } else {
