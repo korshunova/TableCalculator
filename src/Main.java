@@ -16,7 +16,9 @@ public class Main {
             Matrix result = calc.calculate(matrix);
             result.print();
         }catch(IOException io){
-            io.printStackTrace();
+            System.out.println("IO error");
+        } catch (IllegalArgumentException e) {
+            System.out.println("Argument Exception: " + e.getMessage());
         }
     }
 }
