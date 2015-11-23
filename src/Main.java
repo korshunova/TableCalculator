@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
@@ -15,11 +16,6 @@ public class Main {
                     Calculator calc = new Calculator();
                     List<Token>[][] result = calc.calculate(matrix);
                    new Matrix(result).print();
-                }catch(NumberFormatException e){
-                    System.out.print("Token is not a number.");
-                }
-            }
-
         }catch(IOException io){
             io.printStackTrace();
         }
