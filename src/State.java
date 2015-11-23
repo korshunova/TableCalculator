@@ -10,8 +10,8 @@ public class State {
     private Matrix matrix;
 
     public State() {
-        stack = new ArrayDeque<Double>();
-        trace = new ArrayDeque<Reference>();
+        stack = new ArrayDeque<>();
+        trace = new ArrayDeque<>();
     }
 
     public Deque<Double> getStack() {

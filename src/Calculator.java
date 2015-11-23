@@ -20,7 +20,7 @@ public class Calculator {
         state.setMatrix(matrix);
         for (int i = 0; i < matrix.getWidth(); i++) {
             for (int j = 0; j < matrix.getHeight(i); j++) {
-                List<Token> res = new ArrayList<Token>();
+                List<Token> res = new ArrayList<>();
                 res.add(new Number(calculate(matrix.getCell(i, j))));
                 matrix.setCell(i, j, res);
             }
