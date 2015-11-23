@@ -1,7 +1,4 @@
-import java.lang.IllegalStateException;
-import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Deque;
 import java.util.List;
 
 /**
@@ -18,7 +15,7 @@ public class Calculator {
         this.state = state;
     }
 
-    public List<Token>[][] calculate(List<Token>[][] matrix){
+    public List<Token>[][] calculate(Matrix matrix) {
         State state = new State();
         state.setMatrix(matrix);
         for (int i = 0; i < matrix.length; i++){

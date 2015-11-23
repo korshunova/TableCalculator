@@ -1,6 +1,5 @@
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.List;
 
 /**
  * Created by lkorshunova on 22.11.15.
@@ -8,11 +7,11 @@ import java.util.List;
 public class State {
     private Deque<Double> stack;
     private Deque<Reference> trace;
-    private List<Token>[][] matrix;
+    private Matrix matrix;
 
     public State() {
-        stack = new ArrayDeque<>();
-        trace = new ArrayDeque<>();
+        stack = new ArrayDeque<Double>();
+        trace = new ArrayDeque<Reference>();
     }
 
     public Deque<Double> getStack() {
@@ -31,11 +30,11 @@ public class State {
         this.trace = trace;
     }
 
-    public List<Token>[][] getMatrix() {
+    public Matrix getMatrix() {
         return matrix;
     }
 
-    public void setMatrix(List<Token>[][] matrix) {
+    public void setMatrix(Matrix matrix) {
         this.matrix = matrix;
     }
 }

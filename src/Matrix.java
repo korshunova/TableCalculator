@@ -9,19 +9,11 @@ import java.util.List;
 public class Matrix {
     private List<Token>[][] content;
 
-    public List<Token>[][] getContent() {
-        return content;
-    }
-
-    public void setContent(List<Token>[][] content) {
-        this.content = content;
-    }
-
     public Matrix(final List<Token>[][] content) {
         this.content = content;
     }
 
-    public void read(BufferedReader br) throws IOException {
+    public static Matrix read(BufferedReader br) throws IOException {
         String input;
 
         if ((input = br.readLine()) != null) {
@@ -56,13 +48,13 @@ public class Matrix {
                     }
                 }
             }
-            content = matrix;
+            return new Matrix(matrix);
         }
     }
     public void print() {
-        for (int i = 0; i< x; i++){
-            for (int j = 0; j < y; j++){
-                System.out.print(String.format("%.5f", ((Number) result[i][j].get(0)).getValue()) + " ");
+        for (int i = 0; i < content.length; i++) {
+            for (int j = 0; j < content[i].length; j++) {
+                System.out.print(String.format("%.5f", ((Number) content[i][j].get(0)).getValue()) + " ");
             }
             System.out.println();
         }
