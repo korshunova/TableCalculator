@@ -15,14 +15,15 @@ public class Calculator {
         this.state = state;
     }
 
-    public List<Token>[][] calculate(Matrix matrix) {
+    public Matrix calculate(Matrix matrix) {
         State state = new State();
         state.setMatrix(matrix);
-        for (int i = 0; i < matrix.length; i++){
-            for (int j = 0; j < matrix[i].length; j++) {
-                List<Token> res = new ArrayList<>();
-                res.add(new Number(calculate(matrix[i][j])));
-                matrix[i][j] = res;
+        List<Token>[][] content = matrix.getContent();
+        for (int i = 0; i < content.length; i++) {
+            for (int j = 0; j < content[i].length; j++) {
+                List<Token> res = new ArrayList<Token>();
+                res.add(new Number(calculate(content[i][j])));
+                content[i][j] = res;
             }
         }
         return matrix;
@@ -36,6 +37,6 @@ public class Calculator {
         if (result == null) {
             throw new IllegalStateException("Empty stack.");
         }
-        return res;
+        return result;
     }
 }

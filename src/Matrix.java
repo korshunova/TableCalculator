@@ -13,6 +13,10 @@ public class Matrix {
         this.content = content;
     }
 
+    public List<Token>[][] getContent() {
+        return content;
+    }
+
     public static Matrix read(BufferedReader br) throws IOException {
         String input;
 
