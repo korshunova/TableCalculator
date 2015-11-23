@@ -29,7 +29,7 @@ public class Matrix {
         content[x][y] = val;
     }
 
-    public static Matrix read(BufferedReader br) throws IOException {
+    public static Matrix read(BufferedReader br) throws IllegalArgumentException, IOException {
         String input;
 
         if ((input = br.readLine()) != null) {
