@@ -1,8 +1,10 @@
+import java.util.Deque;
+
 /**
  * Created by lkorshunova on 22.11.15.
  */
 public abstract class Token {
-    abstract void proceed(State state);
+    abstract void proceed(Deque<Double> stack, Calculator calc);
 
     public static Token defineToken(String value) throws IllegalArgumentException {
         char c = value.charAt(0);

@@ -1,23 +1,21 @@
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 
 /**
  * Created by lkorshunova on 22.11.15.
  */
 public class Calculator {
-    private State state;
+    private Matrix matrix;
+    private Deque<Reference> trace;
 
-    public State getState() {
-        return state;
+    public Calculator(final Matrix matrix) {
+        this.matrix = matrix;
+        trace = new ArrayDeque<>();
     }
 
-    public void setState(State state) {
-        this.state = state;
-    }
-
-    public Matrix calculate(Matrix matrix) {
-        state = new State();
-        state.setMatrix(matrix);
+    public Matrix calculate() {
         for (int i = 0; i < matrix.getWidth(); i++) {
             for (int j = 0; j < matrix.getHeight(i); j++) {
                 List<Token> res = new ArrayList<>();
@@ -29,10 +27,11 @@ public class Calculator {
     }
 
     public double calculate(List<Token> tokens){
+        Deque<Double> stack = new ArrayDeque<>();
         for (Token token : tokens){
-            token.proceed(state);
+            token.proceed(stack, this);
         }
-        Double result = state.getStack().pop();
+        Double result = stack.pop();
         if (result == null) {
             throw new IllegalStateException("Empty stack.");
         }
