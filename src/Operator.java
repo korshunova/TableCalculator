@@ -10,13 +10,21 @@ public class Operator implements Token {
     @Override
     public void proceed(State state) {
         Deque<Double> stack = state.getStack();
+        Double first = stack.pop();
+        if (first == null) {
+            throw new IllegalStateException("Empty stack.");
+        }
+        Double second = stack.peek();
+        if (second == null && type != OperatorTypeEnum.INCREMENT && type != OperatorTypeEnum.DECREMENT) {
+            throw new IllegalStateException("Empty stack.");
+        }
         switch (type) {
-            case INCREMENT: stack.push(stack.pop()+1);
-            case DECREMENT: stack.push(stack.pop()-1);
-            case ADDITION: stack.push(stack.pop() + stack.pop());
-            case DIFFERENCE: stack.push(-(stack.pop()) + stack.pop());
-            case MULTIPLICATION:stack.push(stack.pop() * stack.pop());
-            case DIVISION: stack.push(1 / stack.pop() * stack.pop());
+            case INCREMENT: stack.push(first+1);
+            case DECREMENT: stack.push(first-1);
+            case ADDITION: stack.push(first + stack.pop());
+            case DIFFERENCE: stack.push(-(first)) + stack.pop());
+            case MULTIPLICATION:stack.push(first * stack.pop());
+            case DIVISION: stack.push(1 / first * stack.pop());
         }
     }
 

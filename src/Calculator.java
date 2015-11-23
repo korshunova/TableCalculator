@@ -1,3 +1,4 @@
+import java.lang.IllegalStateException;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Deque;
@@ -34,6 +35,10 @@ public class Calculator {
         for (Token token : tokens){
             token.proceed(state);
         }
-        return state.getStack().pop();
+        Double result = state.getStack().pop();
+        if (result == null) {
+            throw new IllegalStateException("Empty stack.");
+        }
+        return res;
     }
 }

@@ -1,3 +1,4 @@
+import java.lang.IllegalArgumentException;
 import java.util.Deque;
 
 /**
@@ -32,6 +33,8 @@ public class Reference implements Token {
             calc.getState().setTrace(trace);
             state.getStack().push(calc.calculate(state.getMatrix()[x][y]));
             trace.pop();
+        }else{
+            throw new IllegalArgumentException("There are cyclical references.");
         }
     }
 }
