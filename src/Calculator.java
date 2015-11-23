@@ -29,6 +29,9 @@ public class Calculator {
     }
 
     public double calculate(int x, int y) throws IllegalStateException {
+        if (x >= matrix.getWidth() || y >= matrix.getHeight(x)) {
+            throw new IllegalStateException("Cell does not exist.");
+        }
         Deque<Double> stack = new ArrayDeque<>();
         List<Token> tokens = matrix.getCell(x, y);
         for (Token token : tokens){
