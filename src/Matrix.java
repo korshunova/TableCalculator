@@ -50,6 +50,7 @@ public class Matrix {
             }
             return new Matrix(matrix);
         }
+        return new Matrix(new ArrayList[0][0]);
     }
     public void print() {
         for (int i = 0; i < content.length; i++) {
