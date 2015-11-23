@@ -10,6 +10,10 @@ public class Calculator {
     private Matrix matrix;
     private Deque<Reference> trace;
 
+    public Deque<Reference> getTrace() {
+        return trace;
+    }
+
     public Calculator(final Matrix matrix) {
         this.matrix = matrix;
         trace = new ArrayDeque<>();

@@ -16,7 +16,7 @@ public class Reference extends Token {
 
     @Override
     public void proceed(Deque<Double> stack, Calculator calc) {
-        Deque<Reference> trace = state.getTrace();
+        Deque<Reference> trace = calc.getTrace();
         if(!trace.contains(this)){
             trace.push(this);
             Calculator calc = new Calculator();
