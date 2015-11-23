@@ -6,7 +6,7 @@ import java.util.Map;
 /**
  * Created by lkorshunova on 22.11.15.
  */
-public class Operator implements Token {
+public class Operator extends Token {
     @Override
     public void proceed(State state) {
         Deque<Double> stack = state.getStack();

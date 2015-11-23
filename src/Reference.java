@@ -3,7 +3,7 @@ import java.util.Deque;
 /**
  * Created by lkorshunova on 22.11.15.
  */
-public class Reference implements Token {
+public class Reference extends Token {
     private int x;
     private int y;
 
