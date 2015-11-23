@@ -17,6 +17,10 @@ public class Matrix {
         this.content = content;
     }
 
+    public Matrix(final List<Token>[][] content) {
+        this.content = content;
+    }
+
     public void read(BufferedReader br) throws IOException {
         String input;
 
@@ -57,6 +61,14 @@ public class Matrix {
             } catch (NumberFormatException e) {
                 System.out.print("Token is not a number.");
             }
+        }
+    }
+    public void print() {
+        for (int i = 0; i< x; i++){
+            for (int j = 0; j < y; j++){
+                System.out.print(String.format("%.5f", ((Number) result[i][j].get(0)).getValue()) + " ");
+            }
+            System.out.println();
         }
     }
 
