@@ -45,7 +45,7 @@ public class Matrix {
         for (int i = 0; i < x; i++) {
             for (int j = 0; j < y; j++) {
                 input = br.readLine();
-                if (input == null) {
+                if (input == null || input.trim().isEmpty()) {
                     throw new IllegalArgumentException("Empty input.");
                 }
                 String[] values = input.split(" ");
