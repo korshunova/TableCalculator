@@ -32,7 +32,7 @@ public class Operator implements Token {
     public enum OperatorTypeEnum{
         ADDITION("+"), DIFFERENCE("-"), MULTIPLICATION("*"), DIVISION("/"), INCREMENT("++"), DECREMENT("--");
 
-        private static final Map<String, OperatorTypeEnum> lookup = new HashMap<>();
+        private static final Map<String, OperatorTypeEnum> lookup = new HashMap<String, OperatorTypeEnum>();
         static {
             for(OperatorTypeEnum otEnum : EnumSet.allOf(OperatorTypeEnum.class))
                 lookup.put(otEnum.getSymbol(), otEnum);
