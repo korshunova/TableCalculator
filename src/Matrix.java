@@ -65,8 +65,8 @@ public class Matrix {
                         tokens.add(op);
                     }
                 }
-                }
             }
+        }
         return new Matrix(matrix);
     }
     public void print() {
