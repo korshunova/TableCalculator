@@ -19,6 +19,8 @@ public class Main {
             System.out.println("IO error");
         } catch (IllegalArgumentException e) {
             System.out.println("Argument Exception: " + e.getMessage());
+        } catch (IllegalStateException ex) {
+            System.out.println("Bad expression cause " + ex.getMessage());
         }
     }
 }

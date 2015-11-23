@@ -19,7 +19,7 @@ public class Calculator {
         trace = new ArrayDeque<>();
     }
 
-    public Matrix calculate() {
+    public Matrix calculate() throws IllegalStateException {
         for (int i = 0; i < matrix.getWidth(); i++) {
             for (int j = 0; j < matrix.getHeight(i); j++) {
                 calculate(i, j);
@@ -28,7 +28,7 @@ public class Calculator {
         return matrix;
     }
 
-    public double calculate(int x, int y) {
+    public double calculate(int x, int y) throws IllegalStateException {
         Deque<Double> stack = new ArrayDeque<>();
         List<Token> tokens = matrix.getCell(x, y);
         for (Token token : tokens){
