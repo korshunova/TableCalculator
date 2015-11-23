@@ -22,7 +22,8 @@ public class Operator implements Token {
             case INCREMENT: stack.push(first+1);
             case DECREMENT: stack.push(first-1);
             case ADDITION: stack.push(first + stack.pop());
-            case DIFFERENCE: stack.push(-(first)) + stack.pop());
+            case DIFFERENCE:
+                stack.push(-(first) + stack.pop());
             case MULTIPLICATION:stack.push(first * stack.pop());
             case DIVISION: stack.push(1 / first * stack.pop());
         }
