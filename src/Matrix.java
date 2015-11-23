@@ -46,7 +46,7 @@ public class Matrix {
             for (int j = 0; j < y; j++) {
                 input = br.readLine();
                 if (input == null || input.trim().isEmpty()) {
-                    throw new IllegalArgumentException("Empty input.");
+                    throw new IllegalArgumentException("Empty cell.");
                 }
                 String[] values = input.split(" ");
                 matrix[i][j] = new ArrayList<>();
