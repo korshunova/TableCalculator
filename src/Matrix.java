@@ -35,8 +35,7 @@ public class Matrix {
         if ((input = br.readLine()) != null) {
             String[] dimensions = input.split(" ");
             if (dimensions.length != 2) {
-                System.out.print("Wrong number of dimensions.");
-
+                throw new IllegalArgumentException("Wrong number of dimensions.");
             }
             int x = Integer.parseInt(dimensions[0]);
             int y = Integer.parseInt(dimensions[1]);
