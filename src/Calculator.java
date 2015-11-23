@@ -28,7 +28,7 @@ public class Calculator {
         return matrix;
     }
 
-    public void calculate(int x, int y) {
+    public double calculate(int x, int y) {
         Deque<Double> stack = new ArrayDeque<>();
         List<Token> tokens = matrix.getCell(x, y);
         for (Token token : tokens){
@@ -41,5 +41,6 @@ public class Calculator {
         List<Token> list = new ArrayList<>();
         list.add(new Number(result));
         matrix.setCell(x, y, list);
+        return result;
     }
 }
