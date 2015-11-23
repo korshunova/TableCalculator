@@ -38,6 +38,9 @@ public class Calculator {
         if (result == null) {
             throw new IllegalStateException("Empty stack.");
         }
+        if (stack.peek() != null) {
+            throw new IllegalStateException("Wrong state of stack.");
+        }
         List<Token> list = new ArrayList<>();
         list.add(new Number(result));
         matrix.setCell(x, y, list);
